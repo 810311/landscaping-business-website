@@ -1,0 +1,1126 @@
+/*!
+Theme Name: Landscaping
+Theme URI: http://underscores.me/
+Author: Sergiy Prygara
+Author URI: https://prygara.com/
+Description: Underscores based theme
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: landscaping
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Landscaping is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+*/
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+html {
+	background-color: #ffffff;
+	font-size: 62.5%;
+	/* =10px */
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+html :where(img[class*=wp-image-]) {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+body {
+	font-size: 1.7rem;
+	/* =17px */
+	color: #414040;
+	line-height: 1.7;
+	margin: 0;
+	overflow: auto;
+}
+
+h1 {
+	font-size: 2.4rem;
+	/* =24px */
+}
+
+h1.site-title {
+	font-size: 4.5rem;
+	/* =40px */
+}
+
+h2 {
+	font-size: 2rem;
+	/* =20px */
+}
+
+h2.site-description {
+	font-size: 3rem;
+	/* =30px */
+}
+
+h3 {
+	font-size: 1.8rem;
+	/* =18px */
+}
+
+h1, h2, h3, a {
+	font-family: sans-serif;
+	color: #414040;
+}
+
+div, p {
+	font-family: serif;
+	color: #414040;
+	text-size-adjust: none;
+}
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+	line-height: 1.5;
+	padding-bottom: 1.5rem;
+	background-color: #ffffff;
+	border-bottom: 2px solid #36b759;
+}
+
+.site-header a,
+.site-footer a {
+	text-decoration: none;
+}
+
+.site-branding {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+	padding: 0 5px;
+}
+
+.site-title {
+	position: relative;
+	margin-right: 1.5rem;
+}
+
+.site-title a::before {
+	content: "";
+	position: absolute;
+	top: -3.7px;
+	width: 100%;
+	height: 7px;
+	background: #36b759;
+	display: block !important;
+	-webkit-transform: skew(-22deg);
+	transform: skew(-22deg);
+	text-decoration: none;
+}
+
+.site-title a:after {
+	content: "";
+	position: absolute;
+	bottom: -3.7px;
+	width: 100%;
+	height: 7px;
+	background: #36b759;
+	display: block !important;
+	-webkit-transform: skew(-22deg);
+	transform: skew(-22deg);
+	text-decoration: none;
+}
+
+.site-header .menu,
+.site-footer .menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50rem;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.menu li {
+	position: relative;
+	text-transform: uppercase;
+}
+
+.current-menu-item a:after {
+	content: "";
+	display: block !important;
+	position: absolute;
+	bottom: -3.7px;
+	width: 100%;
+	height: 4px;
+	background: #36b759;
+	-webkit-transform: skew(-22deg);
+	transform: skew(-22deg);
+	text-decoration: none;
+}
+
+.mobile-nav-toggle {
+	display: none;
+}
+
+@media (max-width: 1650px) {
+	.site-branding {
+		width: 55%;
+	}
+	.site-description {
+		margin: 0;
+	}
+}
+
+@media (max-width: 1500px) {
+	.site-description {
+		display: none;
+	}
+}
+
+@media (max-width: 1350px) {
+	div.site {
+		flex-flow: column;
+		text-align: center;
+	}
+	.main-navigation {
+		max-width: fit-content;
+		margin: 1.5rem 5px;
+	}
+}
+
+@media (max-width: 850px) {
+	.site-header {
+		padding: 1.5rem 0;
+		text-align: center;
+	}
+	.site-branding {
+		width: 100%;
+		padding: 5px;
+	}
+	h1.site-title {
+		margin: 0;
+		font-size: 4rem;
+	}
+	.main-navigation {
+		margin: 1.5rem 5px;
+	}
+}
+
+@media (max-width: 525px) {
+	.home a.quote:link, .home a.quote:visited, .home a.quote:focus {
+		font-size: 1em;
+	}
+	.figure-text .phone p {
+		font-size: 2.5rem;
+	}
+}
+
+@media (max-width: 750px) {
+	.site-header .menu {
+		position: fixed;
+		width: auto;
+		z-index: 1000;
+		inset: 0 0 0 50%;
+		background: rgba(128, 128, 128, 0.8);
+		flex-direction: column;
+		justify-content: space-around;
+		gap: 2em;
+		padding: 10rem 2rem;
+		transform: translateX(100%);
+		transition: transform 350ms ease-out;
+	}
+	.site-header .menu[data-visible="true"] {
+		transform: translateX(0%);
+	}
+	.home .headline {
+		padding: 1rem;
+	}
+	.home .headline > p, .headline h2.wp-block-heading {
+		display: none;
+	}
+	.site-header .menu li a {
+		font-size: 1.7rem;
+		color: #fff;
+	}
+	.cards .card {
+		margin: 0.5rem;
+	}
+	.mobile-nav-toggle {
+		display: block;
+		width: 30px;
+		height: 21px;
+		padding: 0;
+		margin: 0;
+		border: none;
+		border-top: 3px solid #36b759;
+		border-bottom: 3px solid #36b759;
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+		background: transparent;
+		z-index: 9999;
+		text-decoration: none;
+		color: #36b759;
+		cursor: pointer;
+		outline: 0;
+	}
+	.mobile-nav-toggle:before,
+	.mobile-nav-toggle:after {
+		content: "";
+		display: block;
+		width: 30px;
+		height: 3px;
+		position: absolute;
+		top: 6px;
+		left: 0;
+		background: #36b759;
+	}
+	.mobile-nav-toggle,
+	.mobile-nav-toggle:before,
+	.mobile-nav-toggle:after {
+		transition: all .3s ease;
+		transform: rotate(0deg);
+	}
+	.open .mobile-nav-toggle {
+		border-color: transparent;
+	}
+	.open .mobile-nav-toggle:before {
+		transform: rotate(45deg);
+		background: #fff;
+	}
+	.open .mobile-nav-toggle:after {
+		transform: rotate(-45deg);
+		background: #fff;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	/* added line */
+	border: 0;
+}
+
+@media (max-width: 750px) {
+	.site-header .menu {
+		animation: close .01s;
+	}
+	@keyframes close {
+		100% {
+			transform: translateX(100%);
+		}
+	}
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.site {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
+/*start home page*/
+.headline {
+	padding: 1rem;
+	background: rgba(25, 26, 23, 0.3);
+}
+
+.home .figure-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: url(http://wahab.test/wp-content/uploads/2024/05/home-page-landscaping-driveway-interlock-l.jpg) no-repeat 50% 0;
+	background-size: cover;
+	aspect-ratio: 2560 / 1441;
+}
+
+/*phone */
+.home .phone {
+	max-width: fit-content;
+	margin: 0 auto;
+}
+
+.home .phone > a,
+.about .phone > a, .services .phone > a,
+.gallery .phone > a, .contact .phone > a {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0 1.5rem;
+	text-decoration: none;
+}
+
+.phone a:before {
+	display: none;
+}
+
+.home .phone svg,
+.about .phone svg, .services .phone svg,
+.gallery .phone svg, .contact .phone svg {
+	position: static;
+	width: 50px;
+	padding: 8px;
+	border-radius: 50%;
+	fill: #36b759;
+	background: white;
+}
+
+.home .phone path {
+	fill: #36b759;
+}
+
+.phone p {
+	font: bold 2.75rem sans-serif;
+	color: white;
+}
+
+.figure-text .phone p {
+	margin: 1vh 0 1vh;
+}
+
+/*phone*/
+.home .wp-block-heading {
+	margin: 0;
+	font-size: 5rem;
+	text-align: center;
+	color: #ffffff;
+}
+
+.figure-text p {
+	font-size: 3rem;
+	font-family: Gothic, CenturyGothic, AppleGothic, sans-serif;
+	text-align: center;
+	line-height: 1.6;
+	color: #ffffff;
+}
+
+.headline > p {
+	max-width: 1040px;
+	margin: 1rem auto;
+}
+
+@media (max-width: 1150px) {
+	.headline h2.wp-block-heading {
+		font-size: 4rem;
+	}
+	.headline > p {
+		font-size: 2.5rem;
+	}
+	.home .entry-content {
+		display: flex;
+		flex-direction: column;
+		justify-items: flex-start;
+	}
+	.home .entry-content .figure-text {
+		margin: 0;
+	}
+	.home .entry-content .cards {
+		margin: auto 0;
+	}
+}
+
+a.quote:link,
+a.quote:visited,
+a.quote:focus {
+	display: block;
+	max-width: 820px;
+	padding: 2rem 0;
+	margin: 1rem auto 1rem;
+	border: none;
+	border-radius: 3.5px;
+	color: #ffffff;
+	background-color: darkgreen;
+	font: normal bold 1.2em Arial, sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	overflow-wrap: break-word;
+	transition: all 0.5s ease-out;
+	cursor: pointer;
+}
+
+a.quote:hover {
+	background-color: #36b759;
+}
+
+.home .site > h1,
+.home .card h2,
+.home .card footer a {
+	display: block;
+	padding: 2rem 0;
+	margin: 0;
+	background-color: darkgreen;
+	color: #ffffff;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.home .cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	column-gap: 1rem;
+}
+
+.home .card {
+	display: flex;
+	flex-direction: column;
+	margin: 1.5rem 5px;
+}
+
+@media screen and (min-width: 700px) {
+	.home .card {
+		flex: 1 0 0;
+		max-width: 500px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.home .figure-text {
+		display: none;
+	}
+}
+
+.home .card .content {
+	flex: 1 1 auto;
+	max-width: 500px;
+	width: 100%;
+}
+
+.home .card footer a:link,
+.home .card footer a:visited,
+.home .card footer a:focus {
+	display: block;
+	text-transform: uppercase;
+	background-color: darkgreen;
+	transition: all 0.5s ease-out;
+}
+
+.home .card footer a:hover {
+	background-color: #36b759;
+}
+
+/*end home page*/
+/*start about page*/
+.inner-banner {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: start;
+	min-height: 350px;
+	background: url(http://wahab.test/wp-content/uploads/2024/10/landscaping.jpg) no-repeat 50%;
+	background-size: cover;
+}
+
+.about .phone, .services .phone, .gallery .phone, .contact .phone {
+	padding-left: 1rem;
+}
+
+.about a.quote:link, .services a.quote:link, .gallery a.quote:link, .contact a.quote:link,
+.about a.quote:visited, .services a.quote:visited, .gallery a.quote:visited, .contact a.quote:visited,
+.about a.quote:focus, .servicesa.quote:focus, .gallery a.quote:focus, .contact a.quote:focus {
+	padding: 2rem;
+	margin-left: 0.5rem;
+	background-color: darkgreen;
+	transition: all 0.5s ease-out;
+}
+
+.about a.quote:hover, .services a.quote:hover, .gallery a.quote:hover, .contact a.quote:hover {
+	background-color: #36b759;
+}
+
+.about .inner-1, .about .inner-2 {
+	display: flex;
+}
+
+.about .inner-1 {
+	border-bottom: 2px solid #36b759;
+}
+
+.about .inner-2 {
+	padding: 1rem 0.5rem;
+}
+
+.about .text {
+	width: 50%;
+	padding: 0.5rem;
+}
+
+.about .text p {
+	font-size: 1.8rem;
+}
+
+.about hr {
+	display: none;
+}
+
+.about .cards {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 50%;
+}
+
+.about .card {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	width: 250px;
+	border-top: 2px solid #36b759;
+	border-bottom: 2px solid #36b759;
+}
+
+.about .card ul {
+	padding: 0;
+	margin-top: 0;
+}
+
+.about .card li {
+	font-size: 1.75rem;
+	line-height: 1.65;
+}
+
+.about .img {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: 50%;
+	max-height: 100vh;
+	gap: 1rem;
+}
+
+.about .img > img {
+	width: 100%;
+	max-width: 455px;
+	box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 1900px) {
+	.about .inner-banner, .services .inner-banner, .gallery .inner-banner, .contact .inner-banner {
+		align-items: center;
+		padding: 0 5px;
+	}
+	.about .inner-banner a.quote, .services .inner-banner a.quote, .gallery .inner-banner a.quote, .contact .inner-banner a.quote {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.inner-banner .phone {
+		padding: 0;
+	}
+	.about .inner-1,
+	.about .inner-2 {
+		display: block;
+	}
+	.about .text {
+		max-width: 820px;
+		width: 100%;
+		margin: 0 auto;
+		text-align: left;
+	}
+	.about .cards {
+		display: flex;
+		width: 100%;
+		max-width: 820px;
+		justify-content: space-between;
+		margin: auto;
+	}
+	.about .inner-1 {
+		padding: 0 0 1rem 0;
+	}
+	.about .inner-2 {
+		max-width: 820px;
+		padding: 0;
+		margin: 0.5rem auto 0.5rem;
+	}
+	.about hr {
+		display: block;
+		border-top: 2px solid #36b759;
+	}
+	.about .img {
+		width: 100%;
+		justify-content: center;
+		gap: 1rem;
+	}
+	.about .img > img {
+		max-width: 400px;
+		width: 100%;
+		margin: 0;
+	}
+	.about .inner-2 .form-2 {
+		width: 100%;
+		text-align: left;
+	}
+	.about .card {
+		max-width: 250px;
+		width: auto;
+		flex: 1 0 0;
+		border: none;
+	}
+	.about .card li {
+		text-decoration: underline dotted #36b759;
+		text-underline-offset: 2.5px;
+		text-decoration-thickness: 1.5px;
+		text-align: left;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.about .img {
+		display: block;
+		max-height: 100%;
+	}
+	.about .img > img {
+		display: block;
+		max-width: 100%;
+		margin: 1.5rem 0;
+		padding: 0 5px;
+	}
+	.about .inner-banner a.quote, .services .inner-banner a.quote, .gallery .inner-banner a.quote {
+		max-width: 600px;
+	}
+	.about .inner-2 .form-2 {
+		margin: 3.5rem 0;
+		padding: 5px;
+	}
+}
+
+.about .form-2 {
+	width: 50%;
+}
+
+.about .form-2 h1 {
+	max-width: 820px;
+	margin: 2.5rem auto 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+	.about .phone {
+		margin: 0 auto;
+		padding: 0;
+	}
+	.about .inner-banner a.quote {
+		margin: 0 auto;
+	}
+	.about .cards {
+		flex-direction: column;
+		width: auto;
+	}
+	.about .card {
+		width: 100%;
+		max-width: none;
+	}
+	.about .card:not(:last-child) {
+		border-bottom: 2px solid #36b759;
+	}
+	.about .card > h2 {
+		width: 150px;
+		text-align: left;
+		outline: 1px dashed blue;
+	}
+	.about .card .content {
+		width: 120px;
+		text-align: left;
+		outline: 1px dashed rebeccapurple;
+	}
+}
+
+/*end about page*/
+/*start services page*/
+.services .text > p, .gallery .text > p {
+	max-width: 820px;
+	margin: auto;
+}
+
+.services .text, .gallery .text, .services .area > p {
+	margin: 1rem;
+}
+
+.service > h2, .services .area > h1 {
+	padding: 1rem;
+	border-bottom: 2px solid #36b759;
+}
+
+.services .cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	max-width: 1280px;
+	margin: auto;
+}
+
+.services .card {
+	display: flex;
+	flex-direction: column;
+	margin: 1.5rem;
+}
+
+@media screen and (min-width: 700px) {
+	.services .card {
+		flex: 1 0 0;
+	}
+}
+
+.servies .card .content {
+	flex: 1 1 auto;
+	max-width: 500px;
+	width: 100%;
+}
+
+@media (max-width: 1350px) {
+	.about .text, .services .text, .gallery .text {
+		text-align: left;
+	}
+	.services .content, .services .area > p {
+		text-align: left;
+	}
+}
+
+.services .area > h1,
+.services .area > p {
+	text-align: center;
+}
+
+.services .city, .contact .city {
+	display: flex;
+	margin: 1.5rem auto;
+	max-width: 820px;
+	justify-content: space-evenly;
+}
+
+.services .wp-block-list {
+	text-align: left;
+}
+
+/*end services page*/
+/*start gallery page*/
+.gallery hr {
+	display: block;
+	height: 2px;
+	margin: 2.5rem 0;
+	border: none;
+	background-color: #36b759;
+}
+
+.gallery .work {
+	padding: 1rem 0 1.5rem;
+}
+
+.work .project {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 3.5rem;
+	max-width: 1280px;
+	margin: auto;
+}
+
+.work .project > img {
+	flex: 1 1 content;
+	min-width: 0;
+}
+
+@media screen and (max-width: 1000px) {
+	.work .project {
+		flex-flow: column;
+		align-items: center;
+		margin: 0.5rem;
+	}
+}
+
+/*end gallery page*/
+/*start contact page*/
+.contact .inner-banner {
+	margin-bottom: 4.5rem;
+}
+
+.contact main > section {
+	display: flex;
+	max-width: 1280px;
+	margin: 3.5rem auto 1.5rem;
+}
+
+.contact main .inner-1 {
+	flex: 1.55 0 0;
+	text-align: left;
+}
+
+.contact main .inner-1 > p {
+	margin-top: 0;
+	padding-bottom: 1.5rem;
+	border-bottom: 2px solid #36b759;
+}
+
+.contact main .inner-2 {
+	flex: 1 0 0;
+}
+
+.contact .inner-2 h1 {
+	margin-top: 0;
+	text-align: center;
+}
+
+.contact .inner-2 hr {
+	display: none;
+}
+
+.address p > span, .hours p > span {
+	display: block;
+}
+
+.city .wp-block-list {
+	margin-top: 0;
+}
+
+.contact .inner-2 .city {
+	margin: 0 auto;
+}
+
+.inner-2 .info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: start;
+	column-gap: 1rem;
+	width: 65%;
+	padding-left: 3.5rem;
+	margin: 0 auto;
+}
+
+.inner-2 svg {
+	position: static;
+	height: 40px;
+	width: 40px;
+	padding: 8px;
+	border-radius: 50%;
+	fill: white;
+	background-color: darkgreen;
+}
+
+@media screen and (max-width: 1450px) {
+	.services .cards {
+		column-gap: 1.5rem;
+	}
+	.contact main > section {
+		display: block;
+		max-width: none;
+	}
+	.contact main .inner-1 {
+		max-width: 820px;
+		margin: auto;
+		padding: 0 5px;
+	}
+	.contact .inner-2 hr {
+		display: block;
+		height: 2px;
+		border: none;
+		background-color: #36b759;
+	}
+	.contact .wrap {
+		display: flex;
+		flex-direction: column;
+	}
+	.contact .info {
+		max-width: 250px;
+	}
+	.contact .inner-2, .city .wp-block-list {
+		text-align: left;
+	}
+	.inner-2 .info {
+		padding-left: 0.5rem;
+	}
+	.contact .inner-2 h1 {
+		margin-top: 1.5rem;
+	}
+	.contact .inner-2 .city {
+		padding-top: 1rem;
+	}
+	.inner-2 .info.tel a {
+		display: flex;
+		align-items: center;
+		column-gap: 1rem;
+	}
+}
+
+@media screen and (min-width: 1451px) {
+	.contact .inner-2 {
+		display: flex;
+		flex-direction: column;
+	}
+	.contact .area {
+		margin-top: auto;
+		padding-bottom: 2.5rem;
+	}
+	.inner-2 .info.tel a {
+		display: flex;
+		align-items: center;
+		column-gap: 1rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.inner-2 .info {
+		width: 70%;
+	}
+}
+
+/*end contact page*/
+/*start contact form*/
+.about .wpcf7 {
+	max-width: 820px;
+	width: 100%;
+	margin: auto;
+}
+
+.wpcf7-form-control-wrap {
+	display: block;
+	padding-bottom: 1rem;
+}
+
+.wpcf7-form p:nth-child(3),
+.wpcf7-form p:nth-child(4),
+.wpcf7-form p:nth-child(5) {
+	margin: 1.5rem 1.5px;
+}
+
+.wpcf7-form p:nth-child(6) {
+	margin: 0.5rem 0;
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"] {
+	height: 4rem;
+	padding: 5px 0;
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form textarea {
+	width: 100%;
+	padding: 2.5px 5px;
+	border: none !important;
+	border-radius: 3px !important;
+	outline: 1px solid #414040 !important;
+	font-size: 1em;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: black;
+}
+
+.wpcf7-textarea {
+	width: 100%;
+	resize: none;
+}
+
+.wpcf7-form-control[type="submit"] {
+	width: 100%;
+	padding: 20px 40px;
+	margin-bottom: 0.5rem;
+	border: 0;
+	border-radius: 3px !important;
+	background-color: darkgreen;
+	font-size: 2rem;
+	font-weight: 700;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background-color 1s;
+}
+
+.wpcf7-form-control[type="submit"]:hover {
+	border: 0;
+	background-color: #36b759;
+	cursor: pointer;
+}
+
+.wpcf7-spinner {
+	display: block;
+	margin: 0 auto;
+}
+
+div.wpcf7-mail-sent-ok,
+.wpcf7 form.sent .wpcf7-response-output {
+	max-width: 960px;
+	margin: 0;
+	text-align: center;
+	border-color: green;
+}
+
+/*end contact form*/
+.site-footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 5px;
+	border-top: 2px solid #36b759;
+}
+
+#secondary-menu {
+	width: 100%;
+	max-width: 50rem;
+}
+
+@media screen and (max-width: 850px) {
+	.site-footer {
+		flex-direction: column;
+		align-items: center;
+		padding-top: 5px;
+	}
+	#secondary-menu {
+		font-size: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	#secondary-menu {
+		font-size: 1.2rem;
+	}
+}
+
+/*social icons*/
+.wp-block-social-links .wp-social-link-facebook,
+.wp-block-social-links .wp-social-link-instagram,
+.wp-block-social-links .wp-social-link-youtube {
+	background-color: gray;
+}
+
+/*social icons*/
+/*--------------------------------------------------------------
+# Module
+--------------------------------------------------------------*/
+
+/*# sourceMappingURL=style.css.map */
