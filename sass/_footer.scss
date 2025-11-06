@@ -1,0 +1,42 @@
+.site-footer {
+     display: flex;
+     justify-content: space-between;
+     padding: 0 5px;
+     border-top: 2px solid #36b759;
+}
+
+
+#secondary-menu {
+     width: 100%;
+     max-width: 50rem;
+}
+
+
+
+
+@media screen and (max-width: 850px) {
+     .site-footer {
+          flex-direction: column;
+          align-items: center;
+          padding-top: 5px;
+     }
+    
+     #secondary-menu{font-size:1.5rem;}
+}
+
+@media screen and (max-width:375px) {
+     #secondary-menu{font-size:1.2rem;}
+ }
+
+
+/*social icons*/
+
+.wp-block-social-links .wp-social-link-facebook,
+.wp-block-social-links .wp-social-link-instagram,
+.wp-block-social-links .wp-social-link-youtube {
+     background-color: gray;
+}
+
+/*social icons*/
+
+

@@ -1,0 +1,56 @@
+html {
+    background-color: #ffffff;
+    font-size: 62.5%; /* =10px */
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+html :where(img[class*=wp-image-]) {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    
+}
+
+
+body { 
+    font-size: 1.7rem; /* =17px */
+    color:rgb(65, 64, 64);
+    line-height: 1.7;
+    margin: 0;
+    overflow: auto;
+    } 
+
+h1   { 
+    font-size: 2.4rem; /* =24px */
+    }
+
+h1.site-title  {
+    font-size: 4.5rem; /* =40px */
+    }
+
+h2  {
+    font-size: 2rem; /* =20px */
+    } 
+
+h2.site-description  {
+    font-size: 3rem; /* =30px */
+    } 
+
+h3   { 
+     font-size: 1.8rem; /* =18px */
+    } 
+
+h1, h2, h3, a {
+    
+    font-family: sans-serif;
+    color: rgb(65, 64, 64);
+}
+
+div, p {
+    font-family: serif;
+    color:  rgb(65, 64, 64);
+    text-size-adjust: none;
+    // font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+}
